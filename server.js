@@ -11,14 +11,11 @@ connect("mongodb://127.0.0.1:27017/redis")
 require("dotenv").config();
 const PORT=process.env.PORT;
 app.use(express.json());
-
-
+const users=require("./routes/users");
+const userdata=require("./routes/userdata");
 connectredis();
-app.get("/test",async (req,res)=>{
-    await client.set("name","Aditya");
-    const name=await client.get("name");
-    res.json({name});
-})
+app.use("/user",users);
+app.use("/userdata",userdata);
 
 
 app.listen(PORT,()=>{
