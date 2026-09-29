@@ -19,11 +19,12 @@ async function login(req,res){
             return res.status(401).json({status:"password mismatch"});
         }
 
-        req.session.userId=user._id;
+        const session_data=req.session.userId=user._id;
         req.session.role=user.role;
 
         return res.status(200).json({
             message: "Login successful"
+            ,session_data
         });
     }
     catch(err){

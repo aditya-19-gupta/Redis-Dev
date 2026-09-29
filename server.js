@@ -18,10 +18,14 @@ const users=require("./routes/users");
 const register=require("./routes/register");
 const login = require("./routes/login");
 const sessionMiddleware = require("./middleware/session");
+const profile = require("./routes/profile");
+const logout = require("./routes/logout");
 connectredis();
 app.use("/user",users);
 app.use("/register",register);
 app.use("/login",sessionMiddleware,login);
+app.use("/profile",sessionMiddleware,profile);
+app.use("/logout",sessionMiddleware,logout);
 
 
 
