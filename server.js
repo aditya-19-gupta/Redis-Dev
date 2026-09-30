@@ -20,11 +20,12 @@ const login = require("./routes/login");
 const sessionMiddleware = require("./middleware/session");
 const profile = require("./routes/profile");
 const logout = require("./routes/logout");
+const ratelimit=require("./middleware/ratelimit");
 connectredis();
 app.use("/user",users);
 app.use("/register",register);
 app.use("/login",sessionMiddleware,login);
-app.use("/profile",sessionMiddleware,profile);
+app.use("/profile",sessionMiddleware,ratelimit,profile);
 app.use("/logout",sessionMiddleware,logout);
 
 
