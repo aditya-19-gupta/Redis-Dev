@@ -1,19 +1,6 @@
-require("dotenv").config()
-const sendmail=require("./services/email_service");
+const logger = require("./utils/logger");
 
-
-async function test(){
-    try{
-        await sendmail(
-            "1nt24is013.aditya@nmit.ac.in",
-            "test mail",
-            "this is the test mail ffor bullmq"
-        );
-
-        console.log("successful");
-    }
-    catch(err){
-        console.log("error");
-    }
-}
-test();
+logger.error("Database connection failed");
+logger.warn("Redis response is slow");
+logger.info("User registered");
+logger.debug("Checking user data");

@@ -20,6 +20,7 @@
     "moongose": "^1.0.0",
     "nodemailer": "^10.0.14",
     "nodemon": "^3.1.14",
-    "redis": "^6.2.1"
+    "redis": "^6.2.1",
+    "winston": "^3.19.0"
   }
 }

@@ -5,7 +5,7 @@ const worker = new Worker(
     "emailqueue",
     async (job) => {
         console.log("Processing job:", job.name);
-
+        
         await sendmail(
             job.data.email,
             "welcome to our website",
